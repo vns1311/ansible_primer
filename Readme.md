@@ -60,3 +60,6 @@ Copy the demo folder to the ansible folder of the control node
 Step 9: Configure the WebServer for the demo Application
 1. Install the packages required for the demo Application
 2. Modify the config and default site of the apache2 Server
+
+Step 10: Configure the loadbalancer for the demo application
+1. Modify the config and the default site of the apache2 Server
