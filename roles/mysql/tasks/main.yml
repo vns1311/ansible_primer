@@ -11,11 +11,7 @@
       name: mysql-server
       state: present
       update_cache: yes
-  - name: Check mysql
-    service:
-      name: mysql
-      state: started
-      enabled: yes
+
   - name: ensure mysql listening on all ports
     lineinfile:
       path: /etc/mysql/my.cnf
@@ -35,3 +31,9 @@
       priv: '{{ db_name }}.*:ALL'
       host: '{{ db_user_host }}'
       state: present
+
+  - name: Check mysql
+    service:
+      name: mysql
+      state: started
+      enabled: yes

@@ -5,11 +5,7 @@
       name: nginx
       state: present
       update_cache: yes
-  - name: Check if nginx is running
-    service:
-      name: nginx
-      state: started
-      enabled: yes
+
   - name: configure nginx site
     template:
       src: templates/nginx.conf.j2
@@ -29,3 +25,9 @@
       dest: /etc/nginx/sites-enabled/demo
       state: link
     notify: restart nginx
+
+  - name: Check if nginx is running
+    service:
+      name: nginx
+      state: started
+      enabled: yes

@@ -9,12 +9,6 @@
       - apache2
       - libapache2-mod-wsgi
 
-  - name: ensure apache2 started
-    service:
-      name: apache2
-      state: started
-      enabled: yes
-
   - name: ensure libapache2-mod-wsgi installed
     apache2_module:
       state: present
@@ -26,3 +20,9 @@
       path: /etc/apache2/sites-enabled/000-default.conf
       state: absent
     notify: restart apache2
+
+  - name: ensure apache2 started
+    service:
+      name: apache2
+      state: started
+      enabled: yes

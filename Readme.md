@@ -96,3 +96,5 @@ Take all handlers from database-server-setup.yml and put them in mysql/handlers/
 ## Step 4: Create a sites.yml file to include all the other yml files
 
 ## Step 5: Further optimize and refactor the code
+1. Use defaults module in mysql
+2. Using Variables
