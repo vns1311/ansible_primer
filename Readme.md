@@ -48,3 +48,6 @@ ansible -m command -a 'echo Hi' all
 Step 6: Setup loadbalancer, control, webservers using yaml file
 Command: ansible-playbook <YAML File>
 This has to be run in the folder where the ansible config file is present
+
+Step 7: Prepare the maintainence yamls
+maintainence yamls - help us perform sanity checks and perform some pre and post deployment actions
