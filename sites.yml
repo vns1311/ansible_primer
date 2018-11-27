@@ -1,0 +1,6 @@
+# Single YAML to run all server setups
+---
+  - include: control-setup.yml
+  - include: load-balancer-setup.yml
+  - include: database-server-setup.yml
+  - include: web-server-setup.yml

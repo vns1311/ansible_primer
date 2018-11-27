@@ -92,3 +92,7 @@ For our demo application, we need 5 roles:
 Example:
 Take all tasks from database-server-setup.yml and put them in mysql/tasks/main.yml
 Take all handlers from database-server-setup.yml and put them in mysql/handlers/main.yml
+
+## Step 4: Create a sites.yml file to include all the other yml files
+
+## Step 5: Further optimize and refactor the code
