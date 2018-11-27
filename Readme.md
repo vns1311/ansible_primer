@@ -19,3 +19,16 @@ alias db01='ssh 192.168.136.121'
 Step 3: Change each node to the appropriate hostname using
 sudo hostname <host_name>
 Eg: sudo hostname control
+
+Step 4: Setup Ansible on control Node
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+
+Sanity Check: ansible --version
+
+Step 5: Setup Custom Ansible config and inventory details
+mkdir ansible
+cd ansible
+Copy the ansible.cfg and dev file into this folder
