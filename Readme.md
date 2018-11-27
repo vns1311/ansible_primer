@@ -1,4 +1,4 @@
-Ansible Primer
+# Ansible Primer
 
 # Day 1
 
@@ -70,3 +70,25 @@ Copy the demo folder to the ansible folder of the control node
 1. Add db_user and demo database
 2. Install python-mysqldb on WebServer and Database Server
 3. Set the Listener ports
+
+# Day 2
+## Optimized Code and Refactoring to roles
+### Roles - Group tasks according to functionality
+
+## Step 1: Create a roles directory under the ansible folder
+mkdir roles
+
+## Step 2: Under the roles directory, run the below command
+
+ansible-galaxy init <role_name>
+For our demo application, we need 5 roles:
+* nginx
+* mysql
+* apache2
+* control
+* demo_app
+
+## Step 3: Restructure the yml files
+Example:
+Take all tasks from database-server-setup.yml and put them in mysql/tasks/main.yml
+Take all handlers from database-server-setup.yml and put them in mysql/handlers/main.yml
