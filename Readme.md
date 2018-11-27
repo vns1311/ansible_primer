@@ -45,6 +45,6 @@ ansible --list-hosts \!control - Everything other than group control
 -Run Command on each server
 ansible -m command -a 'echo Hi' all
 
-Step 6: Setup loadbalancer using yaml file
+Step 6: Setup loadbalancer, control, webservers using yaml file
 Command: ansible-playbook <YAML File>
 This has to be run in the folder where the ansible config file is present
