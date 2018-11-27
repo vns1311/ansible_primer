@@ -1,11 +1,13 @@
 Ansible Primer
 
-Step 1: Get the Vagrantfile and run the below commands:
+# Day 1
+
+## Step 1: Get the Vagrantfile and run the below commands:
 vagrant plugin install vagrant-hostmanager - Install the plugin
 vagrant up - Setup the infrastructure
 vagrant ssh - Connect to the control Node
 
-Step 2: Setup the cluster with appropriate alias names in each node's bashrc file
+## Step 2: Setup the cluster with appropriate alias names in each node's bashrc file
 alias bashrc='vim ~/.bashrc'
 alias sbash='source ~/.bashrc'
 alias pb='cd ~/ansible/playbook'
@@ -16,11 +18,11 @@ alias app01='ssh 192.168.136.111'
 alias app02='ssh 192.168.136.112'
 alias db01='ssh 192.168.136.121'
 
-Step 3: Change each node to the appropriate hostname using
+## Step 3: Change each node to the appropriate hostname using
 Edit the /etc/hostname file in each node
 Then vagrant halt --> vagrant up
 
-Step 4: Setup Ansible on control Node
+## Step 4: Setup Ansible on control Node
 sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
@@ -28,7 +30,7 @@ sudo apt-get install ansible
 
 Sanity Check: ansible --version
 
-Step 5: Setup Custom Ansible config and inventory details
+## Step 5: Setup Custom Ansible config and inventory details
 mkdir ansible
 cd ansible
 Copy the ansible.cfg and dev file into this folder
@@ -45,21 +47,26 @@ ansible --list-hosts \!control - Everything other than group control
 -Run Command on each server
 ansible -m command -a 'echo Hi' all
 
-Step 6: Setup loadbalancer, control, webservers using yaml file
+## Step 6: Setup loadbalancer, control, webservers using yaml file
 Command: ansible-playbook <YAML File>
 This has to be run in the folder where the ansible config file is present
 
-Step 7: Prepare the maintainence yamls
+## Step 7: Prepare the maintainence yamls
 maintainence yamls - help us perform sanity checks and perform some pre and post deployment actions
 stop_stack.yml - Stops all the services running in the nodes
 restart_stack.yml - Restarts the services in the nodes
 
-Step 8: Create the Python Demo Application
+## Step 8: Create the Python Demo Application
 Copy the demo folder to the ansible folder of the control node
 
-Step 9: Configure the WebServer for the demo Application
+## Step 9: Configure the WebServer for the demo Application
 1. Install the packages required for the demo Application
 2. Modify the config and default site of the apache2 Server
 
-Step 10: Configure the loadbalancer for the demo application
+## Step 10: Configure the loadbalancer for the demo application
 1. Modify the config and the default site of the apache2 Server
+
+## Step 11: Configure the database server for the demo application
+1. Add db_user and demo database
+2. Install python-mysqldb on WebServer and Database Server
+3. Set the Listener ports
