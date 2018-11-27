@@ -17,8 +17,8 @@ alias app02='ssh 192.168.136.112'
 alias db01='ssh 192.168.136.121'
 
 Step 3: Change each node to the appropriate hostname using
-sudo hostname <host_name>
-Eg: sudo hostname control
+Edit the /etc/hostname file in each node
+Then vagrant halt --> vagrant up
 
 Step 4: Setup Ansible on control Node
 sudo apt-get install software-properties-common

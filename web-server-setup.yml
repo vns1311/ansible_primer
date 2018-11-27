@@ -13,6 +13,7 @@
           - libapache2-mod-wsgi
           - python-pip
           - python-virtualenv
+          - python-mysqldb
 
       - name: ensure apache2 started
         service:
@@ -29,7 +30,8 @@
       - name: copy demo app source
         copy:
           src: demo/app/
-          dest: /var/www/demo mode=0755
+          dest: /var/www/demo
+          mode: 0755
         notify: restart apache2
 
       - name: copy apache virtual host config
