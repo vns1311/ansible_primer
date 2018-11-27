@@ -51,3 +51,12 @@ This has to be run in the folder where the ansible config file is present
 
 Step 7: Prepare the maintainence yamls
 maintainence yamls - help us perform sanity checks and perform some pre and post deployment actions
+stop_stack.yml - Stops all the services running in the nodes
+restart_stack.yml - Restarts the services in the nodes
+
+Step 8: Create the Python Demo Application
+Copy the demo folder to the ansible folder of the control node
+
+Step 9: Configure the WebServer for the demo Application
+1. Install the packages required for the demo Application
+2. Modify the config and default site of the apache2 Server
