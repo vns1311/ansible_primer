@@ -32,3 +32,19 @@ Step 5: Setup Custom Ansible config and inventory details
 mkdir ansible
 cd ansible
 Copy the ansible.cfg and dev file into this folder
+
+Sanity Checks and few commands:
+-Sanity Checking
+ansible -m ping all
+
+-List Hosts
+ansible --list-hosts all
+ansible --list-hosts webserver - Hosts under a group
+ansible --list-hosts \!control - Everything other than group control
+
+-Run Command on each server
+ansible -m command -a 'echo Hi' all
+
+Step 6: Setup loadbalancer using yaml file
+Command: ansible-playbook <YAML File>
+This has to be run in the folder where the ansible config file is present
