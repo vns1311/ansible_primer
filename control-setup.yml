@@ -2,9 +2,5 @@
 ---
   - hosts: control
     become: true
-    tasks:
-      - name: Install Curl
-        apt:
-          name: curl
-          state: present
-          update_cache: yes
+    roles:
+      - control

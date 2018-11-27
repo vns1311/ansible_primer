@@ -1,2 +1,7 @@
 ---
 # tasks file for control
+  - name: Install Curl
+    apt:
+      name: curl
+      state: present
+      update_cache: yes
