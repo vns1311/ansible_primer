@@ -1,12 +1,18 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This Role corresponds to the mysql setup on the database server
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+We will need the below modules:
+* apt
+* service
+* handler
+* mysql_user
+* mysql_db
+* lineinfile
 
 Role Variables
 --------------
