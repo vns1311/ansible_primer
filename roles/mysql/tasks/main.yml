@@ -4,13 +4,11 @@
     apt:
       name: python-mysqldb
       state: present
-      update_cache: yes
 
   - name: Install mysql
     apt:
       name: mysql-server
       state: present
-      update_cache: yes
 
   - name: ensure mysql listening on all ports
     lineinfile:

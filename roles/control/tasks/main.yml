@@ -4,4 +4,3 @@
     apt:
       name: curl
       state: present
-      update_cache: yes
