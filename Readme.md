@@ -98,3 +98,14 @@ Take all handlers from database-server-setup.yml and put them in mysql/handlers/
 ## Step 5: Further optimize and refactor the code
 1. Use defaults module in mysql
 2. Using Variables
+
+## Step 6: Install Ansible Tower
+new folder - mkdir ansible-tower/
+vagrant init ansible/tower
+vagrant up -- provider virtualbox
+vagrant ssh
+
+# Day 3
+## Other Optimizations
+1. gather_facts
+We will gather facts only when we need it. In this example, we use the gather facts data only for the mysql module. Load Balancer and Web Server do not need fact gathering. Hence we can set gather_facts: false

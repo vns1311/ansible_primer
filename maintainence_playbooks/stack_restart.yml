@@ -2,6 +2,7 @@
 ---
   - hosts: loadbalancer
     become: true
+    gather_facts: false
     tasks:
       - name: ensure nginx stopped
         service:
@@ -10,6 +11,7 @@
 
   - hosts: webserver
     become: true
+    gather_facts: false
     tasks:
       - name: ensure apache2 stopped
         service:
@@ -27,6 +29,7 @@
 
   - hosts: webserver
     become: true
+    gather_facts: false
     tasks:
       - name: ensure webserver started
         service:
@@ -35,6 +38,7 @@
 
   - hosts: loadbalancer
     become: true
+    gather_facts: false
     tasks:
       - name: ensure nginx started
         service:
