@@ -119,3 +119,8 @@ We can tag each task with a tag and then apply parameters at a tag level or run 
 ## Get only active sites
 ### Shell module
 It will run a shell command and store the output in a register variable
+
+## Ansible Vaults
+ansible-vault create <vault_file>
+ansible-vault edit <vault_file>
+ansible-playbook --ask-vault-pass <playbook_file>
