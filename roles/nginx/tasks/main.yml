@@ -4,6 +4,7 @@
     apt:
       name: nginx
       state: present
+    tags: [ 'packages' ]
 
   - name: configure nginx site
     template:
@@ -11,12 +12,14 @@
       dest: '/etc/nginx/sites-available/{{ item.key }}'
       mode: 0644
     with_dict: '{{ sites }}'
+    tags: [ 'system config' ]
     notify: restart nginx
 
   - name: de-activate default nginx site
     file:
       path: /etc/nginx/sites-enabled/default
       state: absent
+    tags: [ 'system config' ]
     notify: restart nginx
 
   - name: activate demo nginx site
@@ -25,6 +28,7 @@
       dest: '/etc/nginx/sites-enabled/{{ item.key }}'
       state: link
     with_dict: '{{ sites }}'
+    tags: [ 'system config' ]
     notify: restart nginx
 
   - name: Check if nginx is running
@@ -32,3 +36,4 @@
       name: nginx
       state: started
       enabled: yes
+    tags: [ 'services' ]

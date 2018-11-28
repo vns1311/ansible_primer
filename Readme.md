@@ -112,3 +112,6 @@ We will gather facts only when we need it. In this example, we use the gather fa
 
 2. update_cache
 Cache Update happens every time we run the playbook. We either use the cache_valid_time parameter to update the cache at periodic intervals
+
+3. Tags
+We can tag each task with a tag and then apply parameters at a tag level

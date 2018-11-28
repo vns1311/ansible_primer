@@ -4,11 +4,13 @@
     apt:
       name: python-mysqldb
       state: present
+    tags: [ 'packages' ]
 
   - name: Install mysql
     apt:
       name: mysql-server
       state: present
+    tags: [ 'packages' ]
 
   - name: ensure mysql listening on all ports
     lineinfile:
@@ -16,11 +18,13 @@
       regexp: '^bind-address'
       line: 'bind-address = {{ ansible_eth1.ipv4.address }}'
     notify: restart mysql
+    tags: [ 'system config' ]
 
   - name: create demo database
     mysql_db:
       name: '{{ db_name }}'
       state: present
+    tags: [ 'app config' ]
 
   - name: create database user
     mysql_user:
@@ -29,9 +33,11 @@
       priv: '{{ db_name }}.*:ALL'
       host: '{{ db_user_host }}'
       state: present
+    tags: [ 'app config' ]
 
   - name: Check mysql
     service:
       name: mysql
       state: started
       enabled: yes
+    tags: [ 'services' ]

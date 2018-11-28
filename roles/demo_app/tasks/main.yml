@@ -8,6 +8,7 @@
       - python-pip
       - python-virtualenv
       - python-mysqldb
+    tags: [ 'packages' ]
 
   - name: copy demo app source
     copy:
@@ -15,6 +16,7 @@
       dest: /var/www/demo
       mode: 0755
     notify: restart apache2
+    tags: [ 'system config' ]
 
   - name: copy apache virtual host config
     copy:
@@ -22,12 +24,14 @@
       dest: /etc/apache2/sites-available
       mode: 0755
     notify: restart apache2
+    tags: [ 'system config' ]
 
   - name: setup python virtualenv for the flask app
     pip:
       requirements: /var/www/demo/requirements.txt
       virtualenv: /var/www/demo/.venv
     notify: restart apache2
+    tags: [ 'app config' ]
 
   - name: activate demo application site
     file:
@@ -35,3 +39,4 @@
       dest: /etc/apache2/sites-enabled/demo.conf
       state: link
     notify: restart apache2
+    tags: [ 'app config' ]

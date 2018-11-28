@@ -4,3 +4,4 @@
     apt:
       name: curl
       state: present
+    tags: [ 'packages' ]
