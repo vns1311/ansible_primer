@@ -114,4 +114,8 @@ We will gather facts only when we need it. In this example, we use the gather fa
 Cache Update happens every time we run the playbook. We either use the cache_valid_time parameter to update the cache at periodic intervals
 
 3. Tags
-We can tag each task with a tag and then apply parameters at a tag level
+We can tag each task with a tag and then apply parameters at a tag level or run only specific tags. Eg: ansible-playbook sites.xml --tags "packages"
+
+## Get only active sites
+### Shell module
+It will run a shell command and store the output in a register variable

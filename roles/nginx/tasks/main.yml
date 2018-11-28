@@ -15,10 +15,16 @@
     tags: [ 'system config' ]
     notify: restart nginx
 
-  - name: de-activate default nginx site
+  - name: get active sites
+    shell: ls -l /etc/nginx/sites-enabled
+    register: active
+
+  - name: de-activate nginx sites
     file:
-      path: /etc/nginx/sites-enabled/default
+      path: /etc/nginx/sites-enabled/{{ item }}
       state: absent
+    with_items: active.stdout_lines
+    when: item not in sites
     tags: [ 'system config' ]
     notify: restart nginx
 
