@@ -1,5 +1,13 @@
 # Single YAML to run all server setups
 ---
+  - hosts: all
+    become: true
+    gather_facts: false
+    tasks:
+      - name: update apt cache
+        apt:
+          update_cache: yes
+          cache_valid_time: 86400
   - include: control-setup.yml
   - include: load-balancer-setup.yml
   - include: database-server-setup.yml

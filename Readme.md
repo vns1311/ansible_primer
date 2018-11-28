@@ -109,3 +109,6 @@ vagrant ssh
 ## Other Optimizations
 1. gather_facts
 We will gather facts only when we need it. In this example, we use the gather facts data only for the mysql module. Load Balancer and Web Server do not need fact gathering. Hence we can set gather_facts: false
+
+2. update_cache
+Cache Update happens every time we run the playbook. We either use the cache_valid_time parameter to update the cache at periodic intervals
